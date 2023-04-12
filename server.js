@@ -3,7 +3,7 @@ const app = express();
 const port = require('./config/server.config')
 const URL = require("./config/db.config")
 const mongoose = require("mongoose")
-const ticketNotificationRoutes = require("./routes/tnotication.routes")
+const ticketNotificationRoutes = require("./routes/ticNotication.routes")
 
 ticketNotificationRoutes(app);
 
@@ -12,9 +12,5 @@ app.listen(port,()=>{
 
     //connecting to the db
 
-    mongoose.connect(URL ,()=>{
-        console.log("Connected to the DB")
-    }, (error)=>{
-        console.log(error)
-    })
+    mongoose.connect(URL) 
 })
