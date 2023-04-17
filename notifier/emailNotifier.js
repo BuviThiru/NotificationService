@@ -12,19 +12,22 @@ const trasporter = nodemailer.createTransport({
     }
 });
 
-
+const sendNotificationMail = (to,subject,text,html)=>{ 
 const message = {
     from : EMAIL_ADD,
-    to : EMAIL_ADD,
-    subject : "Message Title",
-    text : "Plaintext Version of the message",
-    html : "<p>HTML version of the message<p>"
-}
+    to : to,
+    subject : subject,
+    text : text,
+    html : html
+};
 
 trasporter.sendMail(message,(err,info)=>{
     if(err){
-        console.log(err)
+        console.log(err);
     }else {
-        console.log("Info",info)
+        console.log("Info",info);
     }
 })
+};
+
+module.exports = {sendNotificationMail};
