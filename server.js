@@ -6,15 +6,13 @@ const mongoose = require("mongoose")
 const ticketNotificationRoutes = require("./routes/ticNotication.routes")
 
 const {sendNotificationMail} = require('./notifier/emailNotifier')
-
 const bodyParcer = require('body-parser')
 app.use(bodyParcer.json());
 app.use(bodyParcer.urlencoded({extended:true}))
 ticketNotificationRoutes(app);
 
 app.listen(PORT,()=>{
-    console.log("App listening to the port", PORT)
-    sendNotificationMail()
+    console.log("App listening to the port", PORT)   
        mongoose.connect(URL); 
        
 })

@@ -1,4 +1,5 @@
-const TicketNotification = require("../models/ticketNotification.model")
+const TicketNotification = require("../models/ticketNotification.model");
+const { sendNotificationMail } = require("../notifier/emailNotifier");
 
 const createTicNotificationSer = async(data)=>{
  try{
@@ -10,7 +11,10 @@ const createTicNotificationSer = async(data)=>{
          ticketId : data.ticketId,     
       }
 
-      const response = await TicketNotification.create(newNotification)
+      const response = await TicketNotification.create(newNotification);
+      newNotification.recipientEmail.forEach((recipient)=>{
+        sendNotificationMail(recipient,newNotification.subject,newNotification.content,"<h3>Thank You</h3>")
+      })
     return {
         result : response,
     }

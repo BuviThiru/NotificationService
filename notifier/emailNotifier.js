@@ -13,16 +13,16 @@ const trasporter = nodemailer.createTransport({
     }
 });
 
-const sendNotificationMail = ()=>{ 
-    console.log(EMAIL_ADD)
+const sendNotificationMail = (to,subject,text,html)=>{  
+     
 const message = {
     from : EMAIL_ADD,
-    to : [EMAIL_ADD],
-    subject : "second check",
-    text : "text",
-    html : "<h1>Hai welcome</h1>"
+    to : to,
+    subject : subject,
+    text : text,
+    html :html
 };
-console.log(">>>>>>>>>>>>>>>>",message)
+console.log("message",message) 
 trasporter.sendMail(message,(err,info)=>{
     if(err){
         console.log(err);
