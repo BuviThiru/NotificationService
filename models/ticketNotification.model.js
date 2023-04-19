@@ -40,4 +40,4 @@ const ticketNotification = new mongoose.Schema({
 })
 
 
-module.exports = mongoose.model(ticketNotification , "TicketNotification")
+module.exports = mongoose.model("TicketNotification" , ticketNotification)

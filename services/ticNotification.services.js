@@ -1,13 +1,15 @@
 const TicketNotification = require("../models/ticketNotification.model")
 
-const createTicNotification = async(data)=>{
+const createTicNotificationSer = async(data)=>{
  try{
     const newNotification = {
-        subject:data.subject,
+         subject:data.subject,
+         content:data.content,
          recipientEmail : data.recipientEmail,
          requestor :data.requestor,
          ticketId : data.ticketId,     
       }
+
       const response = await TicketNotification.create(newNotification)
     return {
         result : response,
@@ -43,4 +45,4 @@ const setStatusSent = async(notification) =>{
 }
 
 
-module.exports = {createTicNotification,getAllUnsentNotifications,setStatusSent}
+module.exports = {createTicNotificationSer,getAllUnsentNotifications,setStatusSent}

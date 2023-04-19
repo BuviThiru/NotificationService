@@ -1,4 +1,4 @@
-const notification_URI = "";
+const notification_URI = "mongodb://127.0.0.1:27017/ticket_notification_db";
 
-// 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
+
 module.exports = notification_URI

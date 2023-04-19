@@ -1,8 +1,8 @@
-const createTicNotification = require('../services/ticNotification.services')
+const {createTicNotificationSer} = require('../services/ticNotification.services')
 
 exports.createTicNotification = async (req, res) => {
   try {
-    const notification = await createTicNotification(req.body);
+     const notification = await createTicNotificationSer(req.body);
     if (notification.result) {
       return res.status(200).send({
         result: "Notification created",
