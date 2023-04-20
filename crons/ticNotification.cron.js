@@ -3,11 +3,15 @@ const { sendNotificationMail } = require("../notifier/emailNotifier");
 
 var CronJob = require("cron").CronJob;
 var job = new CronJob(
-  "03 * * * * *",
+  "05 * * * * *",
   async function () {
+    console.log("Cron job in progress")
     const unsentNotifications = await getAllUnsentNotifications();
-    unsentNotifications.forEach(async (notification) => {
+    console.log("??????????????????????????",unsentNotifications)
+    unsentNotifications.forEach(async  (notification) => {
+      console.log(notification.recipientEmails)
       notification.recipientEmails.forEach((recipient) => {
+       
         sendNotificationMail(
           recipient,
           notification.subject,

@@ -18,7 +18,7 @@ const ticketNotification = new mongoose.Schema({
      sentStatus :{
         type:String,
         required :true,
-        default :"Unsent"
+        default :"UNSENT"
      } ,
      requestor :{
         type: String,
