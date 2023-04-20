@@ -16,8 +16,8 @@ var job = new CronJob(
           recipient,
           notification.subject,
           notification.content,
-          "<h3>Thank You</h3>"
-        );    
+          "<h3>"+notification.content+"</h3>"
+          );    
       });
       await setStatusSent(notification)
     });
