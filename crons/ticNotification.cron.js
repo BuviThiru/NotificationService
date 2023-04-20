@@ -5,11 +5,12 @@ var CronJob = require("cron").CronJob;
 var job = new CronJob(
   "05 * * * * *",
   async function () {
-    console.log("Cron job in progress")
+    try{
+      console.log("Cron job in progress")
     const unsentNotifications = await getAllUnsentNotifications();
-    console.log("??????????????????????????",unsentNotifications)
+   
     unsentNotifications.forEach(async  (notification) => {
-      console.log(notification.recipientEmails)
+     
       notification.recipientEmails.forEach((recipient) => {
        
         sendNotificationMail(
@@ -21,6 +22,9 @@ var job = new CronJob(
       });
       await setStatusSent(notification)
     });
+    }catch(err){
+      console.log(err)
+    }
   },
   null,
   true,

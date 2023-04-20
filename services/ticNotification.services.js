@@ -37,7 +37,7 @@ const getAllUnsentNotifications = async() =>{
 const setStatusSent = async(notification) =>{
    try{
        const update = notification;
-       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>UPDATE",update)
+  
        update.sentStatus = "SENT";
        await TicketNotification.updateOne({_id: notification._id}, update);
    }
