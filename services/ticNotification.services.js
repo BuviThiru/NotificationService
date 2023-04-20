@@ -40,7 +40,7 @@ const setStatusSent = async(notification) =>{
    try{
        const update = notification;
        update.sentStatus = "SENT";
-       await TicketNotification.updateOne({id: notification._id}, update);
+       await TicketNotification.updateOne({_id: notification._id}, update);
    }
    catch(err){
        console.log(err.message);

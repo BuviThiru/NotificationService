@@ -11,7 +11,7 @@ const ticketNotification = new mongoose.Schema({
         type : String,
         required: true
      },
-     recipientEmail :{
+     recipientEmails:{
         type : [String],
         required: true
      },
