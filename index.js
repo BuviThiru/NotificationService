@@ -15,6 +15,7 @@ ticketNotificationRoutes(app);
 
 app.listen(PORT,()=>{
     console.log("App listening to the port", PORT)   
+    console.log(URL)
        mongoose.connect(URL); 
     //    job.start();
   })

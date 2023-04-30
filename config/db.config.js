@@ -1,4 +1,5 @@
-const notification_URI = "mongodb://127.0.0.1:27017/ticket_notification_db";
+require("dotenv").config()
+const notification_URI = process.env.Mongo_URL ;
 
 
 module.exports = notification_URI
