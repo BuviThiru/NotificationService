@@ -4,7 +4,7 @@ const PORT = require('./config/server.config')
 const URL = require("./config/db.config")
 const mongoose = require("mongoose")
 const ticketNotificationRoutes = require("./routes/ticNotication.routes")
-const {job} = require('./crons/ticNotification.cron')
+// const {job} = require('./crons/ticNotification.cron')
 
 const {sendNotificationMail} = require('./notifier/emailNotifier')
 const bodyParcer = require('body-parser');
